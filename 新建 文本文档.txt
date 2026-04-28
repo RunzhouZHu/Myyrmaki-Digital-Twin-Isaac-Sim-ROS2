@@ -20,10 +20,15 @@ sudo apt-get install ros-$ROS_DISTRO-teleop-twist-keyboard
 
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
+
+ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8799
 ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 
 ros2 launch foxglove_bridge foxglove_bridge_launch.xml send_buffer_limit:=10000000 use_compression:=true
 
+
+https://turtlebot.github.io/turtlebot4-user-manual/tutorials/generate_map.html#
+sudo apt install ros-jazzy-turtlebot4-navigation
 
 ros2 launch turtlebot4_navigation slam.launch.py\
   params_file:=/home/runzhou/slam_config/optimized_slam.yaml
