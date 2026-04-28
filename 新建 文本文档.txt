@@ -1,0 +1,56 @@
+python scripts/reinforcement_learning/skrl/train.py --task=Isaac-Velocity-Rough-Anymal-C-v0
+python scripts/reinforcement_learning/skrl/train.py --task=Isaac-Velocity-Rough-Anymal-C-v0 --num_envs=1000
+python scripts/reinforcement_learning/skrl/train.py --task=Isaac-Velocity-Rough-Anymal-C-v0 --num_envs=1000 --headless
+
+python scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Velocity-Rough-Anymal-C-v0 --num_envs=500
+
+python scripts/reinforcement_learning/skrl/train.py --task=Isaac-Ant-v0
+
+
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Velocity-Flat-H1-v0 --headless
+
+python scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Cartpole-v0 --num_envs=64 --headless --video
+
+
+ros2 topic pub /cmd_vel geometry_msgs/Twist "{'linear': {'x': 0.2, 'y': 0.0, 'z': 0.0}, 'angular': {'x': 0.0, 'y': 0.0, 'z': 0.0}}"
+
+ros2 topic pub /cmd_vel geometry_msgs/Twist "{'linear': {'x': 0.0, 'y': 0.0, 'z': 0.0}, 'angular': {'x': 0.0, 'y': 0.0, 'z': 0.0}}"
+
+sudo apt-get install ros-$ROS_DISTRO-teleop-twist-keyboard
+
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+
+ros2 launch foxglove_bridge foxglove_bridge_launch.xml
+
+ros2 launch foxglove_bridge foxglove_bridge_launch.xml send_buffer_limit:=10000000 use_compression:=true
+
+
+ros2 launch turtlebot4_navigation slam.launch.py\
+  params_file:=/home/runzhou/slam_config/optimized_slam.yaml
+
+ros2 launch slam_toolbox online_async_launch.py \
+  params_file:=~/slam_config/optimized_slam.yaml
+
+ros2 launch turtlebot4_viz view_robot.launch.py
+
+/clicked_point
+/cmd_vel
+/initialpose
+/map
+/map_metadata
+/move_base_simple/goal
+/odom
+/parameter_events
+/pose
+/rosout
+/scan
+/slam_toolbox/feedback
+/slam_toolbox/graph_visualization
+/slam_toolbox/scan_visualization
+/slam_toolbox/update
+/tf
+/tf_static
+
+
+
+
