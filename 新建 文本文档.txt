@@ -61,6 +61,8 @@ ros2 launch turtlebot4_viz view_navigation.launch.py (JAZZY)
 ssh -L 8798:localhost:8798 root@43.108.52.120
 ssh -L 8797:localhost:8797 runzhou@43.108.52.120
 
+ssh -CNg -L 8798:127.0.0.1:8798 root@183.147.142.40 -p 30333
+
 PUBLIC_IP=$(curl -s ifconfig.me) && ./runheadless.sh --/app/livestream/publicEndpointAddress=$PUBLIC_IP --/app/livestream/port=49100
 
 PUBLIC_IP=$(curl -s ifconfig.me) && ./isaac-sim.streaming.sh --/app/livestream/publicEndpointAddress=$PUBLIC_IP --/app/livestream/port=49100
