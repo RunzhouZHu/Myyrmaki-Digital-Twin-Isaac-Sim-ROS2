@@ -17,6 +17,8 @@ https://turtlebot.github.io/turtlebot4-user-manual/tutorials/navigation.html
 ros2 launch turtlebot4_navigation localization.launch.py map:=scaledown_urban.yaml
 ros2 launch turtlebot4_navigation localization.launch.py map:=/root/Desktop/qwe/Runzhou/scaledown_urban.yaml
 
+ros2 launch turtlebot4_navigation localization.launch.py map:=/root/Desktop/qwe/Runzhou/map_aaa.yaml
+
 ros2 launch turtlebot4_navigation nav2.launch.py use_sim_time:=true
 
 Humble:
